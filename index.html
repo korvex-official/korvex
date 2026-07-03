@@ -3,39 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KORVEX</title>
+    <title>KORVEX SYSTEM</title>
     <style>
-        body { margin: 0; background: #000; color: #fff; font-family: monospace; text-align: center; }
+        body { margin: 0; background: #000; color: #fff; font-family: 'Courier New', monospace; text-align: center; }
+
+        /* Splash Screen */
+        #splash { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 999; transition: opacity 0.5s; }
         
-        /* Splash simplifiée */
-        #splash { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 999; }
+        #logo-splash { width: 150px; margin-bottom: 30px; animation: pulse 1.5s infinite; }
         
-        /* Menu */
-        #main { padding-top: 50px; }
-        .logo { width: 120px; margin-bottom: 20px; }
-        .btn { display: block; margin: 15px auto; padding: 15px; width: 80%; background: #111; color: #fff; border: 1px solid #333; cursor: pointer; }
+        #load-container { width: 200px; height: 4px; background: #222; }
+        #bar { width: 0%; height: 100%; background: #fff; animation: loading 2.5s forwards; }
+
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @keyframes loading { to { width: 100%; } }
+
+        /* Main Content */
+        #main { display: none; padding-top: 50px; }
+        .logo-main { width: 100px; margin-bottom: 30px; }
+        button { display: block; margin: 15px auto; padding: 15px; width: 80%; background: #111; color: #fff; border: 1px solid #444; font-family: monospace; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <div id="splash">
-        <p>INITIALISATION KORVEX...</p>
+        <img src="logo.png" id="logo-splash" alt="Logo">
+        <div id="load-container"><div id="bar"></div></div>
     </div>
 
     <div id="main">
-        <img src="logo.png" class="logo" alt="Logo">
-        <div class="btn">KORVEX LABS</div>
-        <div class="btn">PROTOCOLE P9</div>
-        <div class="btn">DISCORD</div>
+        <img src="logo.png" class="logo-main" alt="Logo">
+        <button onclick="alert('KORVEX LABS')">🧩 KORVEX LABS</button>
+        <button onclick="alert('PROTOCOLE P9')">📖 PROTOCOLE P9</button>
+        <button onclick="window.open('https://discord.gg/ton-lien')">💬 DISCORD</button>
     </div>
 
     <script>
-        // On attend que la page charge, puis on vire le splash après 1.5 secondes
-        window.onload = function() {
+        // Bascule après 2.5 secondes
+        setTimeout(function() {
+            document.getElementById('splash').style.opacity = '0';
             setTimeout(function() {
                 document.getElementById('splash').style.display = 'none';
-            }, 1500);
-        };
+                document.getElementById('main').style.display = 'block';
+            }, 500);
+        }, 2500);
     </script>
 </body>
 </html>
