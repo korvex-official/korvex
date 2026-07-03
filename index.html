@@ -10,17 +10,19 @@
         /* Splash Screen */
         #splash { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 999; transition: opacity 0.5s; }
         
-        #logo-splash { width: 150px; margin-bottom: 30px; animation: pulse 1.5s infinite; }
+        /* Logo agrandi à 300px */
+        #logo-splash { width: 300px; margin-bottom: 30px; animation: pulse 2s infinite; }
         
-        #load-container { width: 200px; height: 4px; background: #222; }
-        #bar { width: 0%; height: 100%; background: #fff; animation: loading 2.5s forwards; }
+        #load-container { width: 250px; height: 6px; background: #222; }
+        /* Animation ralentie à 4s */
+        #bar { width: 0%; height: 100%; background: #fff; animation: loading 4s forwards; }
 
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         @keyframes loading { to { width: 100%; } }
 
         /* Main Content */
         #main { display: none; padding-top: 50px; }
-        .logo-main { width: 100px; margin-bottom: 30px; }
+        .logo-main { width: 120px; margin-bottom: 30px; }
         button { display: block; margin: 15px auto; padding: 15px; width: 80%; background: #111; color: #fff; border: 1px solid #444; font-family: monospace; cursor: pointer; }
     </style>
 </head>
@@ -33,21 +35,20 @@
 
     <div id="main">
         <img src="logo.png" class="logo-main" alt="Logo">
-        <button onclick="alert('KORVEX LABS')">🧩 KORVEX LABS</button>
-        <button onclick="alert('PROTOCOLE P9')">📖 PROTOCOLE P9</button>
+        <button onclick="alert('Accès aux archives...')">🧩 KORVEX LABS</button>
+        <button onclick="alert('Chargement du P9...')">📖 PROTOCOLE P9</button>
         <button onclick="window.open('https://discord.gg/ton-lien')">💬 DISCORD</button>
     </div>
 
     <script>
-        // Bascule après 2.5 secondes
+        // Le script attend maintenant 4 secondes pour coller avec l'animation
         setTimeout(function() {
             document.getElementById('splash').style.opacity = '0';
             setTimeout(function() {
                 document.getElementById('splash').style.display = 'none';
                 document.getElementById('main').style.display = 'block';
             }, 500);
-        }, 2500);
+        }, 4000);
     </script>
 </body>
 </html>
-''
