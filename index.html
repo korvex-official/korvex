@@ -22,9 +22,7 @@
         button { background: #111; color: #fff; border: 1px solid #333; padding: 15px; width: 80%; max-width: 300px; font-family: inherit; cursor: pointer; transition: 0.3s; }
         button:hover { border: 1px solid #ff0000; background: #1a1a1a; }
 
-        /* Livre View */
-        #book-view { display: none; padding: 20px; }
-        #book-cover { width: 200px; cursor: pointer; border: 2px solid #555; }
+        @keyframes load { to { width: 100%; } }
     </style>
 </head>
 <body>
@@ -44,27 +42,21 @@
 
     <div class="section-title">PROTOCOLE P9</div>
     <div class="btn-group">
-        <button onclick="showBook()">ACCÉDER AU TOME 1</button>
+        <button onclick="alert('Ouverture P9...')">ACCÉDER AU TOME 1</button>
     </div>
 
     <div class="section-title">NETWORK</div>
     <div class="btn-group">
-        <button onclick="window.open('TON_LIEN_DISCORD')">REJOINDRE DISCORD</button>
+        <button onclick="window.open('https://discord.gg/ton-lien')">REJOINDRE DISCORD</button>
     </div>
 </div>
 
-<div id="book-view">
-    <h3>Protocole P9 - Tome 1</h3>
-    <img src="couverture.png" id="book-cover" onclick="alert('Ouverture du livre...')">
-    <p>Cliquez sur la couverture pour lire.</p>
-    <button onclick="backToMain()">Retour au menu</button>
-</div>
-
 <script>
-    setTimeout(() => { document.getElementById("splash").style.display="none"; document.getElementById("main").style.display="block"; }, 2000);
-    function showBook() { document.getElementById("main").style.display="none"; document.getElementById("book-view").style.display="block"; }
-    function backToMain() { document.getElementById("main").style.display="block"; document.getElementById("book-view").style.display="none"; }
-    @keyframes load { to { width:100%; } }
+    // Correction ici : le chargement dure 2 secondes
+    setTimeout(() => { 
+        document.getElementById("splash").style.display = "none"; 
+        document.getElementById("main").style.display = "block"; 
+    }, 2100);
 </script>
 </body>
 </html>
