@@ -2,61 +2,40 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>KORVEX SYSTEM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KORVEX</title>
     <style>
-        body { margin: 0; background: #0a0a0a; color: #fff; font-family: 'Courier New', Courier, monospace; text-align: center; }
+        body { margin: 0; background: #000; color: #fff; font-family: monospace; text-align: center; }
         
-        /* Splash Screen */
-        #splash { position: fixed; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 100; }
-        #logo-splash { width: 150px; margin-bottom: 20px; }
-        #loading-bar { width: 150px; height: 2px; background: #333; }
-        #bar { width: 0%; height: 100%; background: #ff0000; animation: load 2s forwards; }
-
-        /* Hub */
-        #main { display: none; padding-top: 50px; }
-        #logo-header { width: 80px; margin-bottom: 30px; }
-        .section-title { color: #555; font-size: 12px; letter-spacing: 2px; margin-top: 40px; margin-bottom: 10px; }
+        /* Splash simplifiée */
+        #splash { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 999; }
         
-        .btn-group { display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        button { background: #111; color: #fff; border: 1px solid #333; padding: 15px; width: 80%; max-width: 300px; font-family: inherit; cursor: pointer; transition: 0.3s; }
-        button:hover { border: 1px solid #ff0000; background: #1a1a1a; }
-
-        @keyframes load { to { width: 100%; } }
+        /* Menu */
+        #main { padding-top: 50px; }
+        .logo { width: 120px; margin-bottom: 20px; }
+        .btn { display: block; margin: 15px auto; padding: 15px; width: 80%; background: #111; color: #fff; border: 1px solid #333; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<div id="splash">
-    <img src="logo.png" id="logo-splash" alt="KORVEX">
-    <div id="loading-bar"><div id="bar"></div></div>
-</div>
-
-<div id="main">
-    <img src="logo.png" id="logo-header" alt="KORVEX">
-    
-    <div class="section-title">KORVEX LABS</div>
-    <div class="btn-group">
-        <button onclick="alert('Accès LABS restreint')">ACCÉDER AUX LABS</button>
+    <div id="splash">
+        <p>INITIALISATION KORVEX...</p>
     </div>
 
-    <div class="section-title">PROTOCOLE P9</div>
-    <div class="btn-group">
-        <button onclick="alert('Ouverture P9...')">ACCÉDER AU TOME 1</button>
+    <div id="main">
+        <img src="logo.png" class="logo" alt="Logo">
+        <div class="btn">KORVEX LABS</div>
+        <div class="btn">PROTOCOLE P9</div>
+        <div class="btn">DISCORD</div>
     </div>
 
-    <div class="section-title">NETWORK</div>
-    <div class="btn-group">
-        <button onclick="window.open('https://discord.gg/ton-lien')">REJOINDRE DISCORD</button>
-    </div>
-</div>
-
-<script>
-    // Correction ici : le chargement dure 2 secondes
-    setTimeout(() => { 
-        document.getElementById("splash").style.display = "none"; 
-        document.getElementById("main").style.display = "block"; 
-    }, 2100);
-</script>
+    <script>
+        // On attend que la page charge, puis on vire le splash après 1.5 secondes
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('splash').style.display = 'none';
+            }, 1500);
+        };
+    </script>
 </body>
 </html>
