@@ -7,7 +7,7 @@
     <style>
         body { margin: 0; background: #000; color: #fff; font-family: 'Courier New', monospace; }
 
-        /* Splash Screen */
+        /* Splash */
         #splash { position: fixed; top:0; left:0; width:100%; height:100%; background:#000; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:999; }
         #logo-splash { width: 300px; margin-bottom: 30px; animation: pulse 2s infinite; }
         #bar-bg { width: 250px; height: 6px; background: #222; }
@@ -15,24 +15,24 @@
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         @keyframes loading { to { width: 100%; } }
 
-        /* Header structure */
+        /* Header */
         .header-box { border-bottom: 1px solid #333; padding: 20px; display: flex; align-items: center; justify-content: center; position: relative; }
         .logo-header { width: 80px; position: absolute; left: 20px; }
         .title-header { border: 2px solid #ff0000; padding: 15px 40px; font-size: 24px; letter-spacing: 4px; font-weight: bold; }
 
         /* Boutons */
-        .btn-zone { width: 90%; max-width: 800px; margin: 40px auto; padding: 25px; background: #111; border: 1px solid #444; cursor: pointer; display: flex; align-items: center; }
+        .btn-zone { width: 90%; max-width: 800px; margin: 30px auto; padding: 20px; background: #111; border: 1px solid #444; cursor: pointer; display: flex; align-items: center; }
         .btn-zone:hover { border-color: #ff0000; background: #181818; }
-        .btn-zone img { width: 60px; margin-right: 30px; }
-        .btn-zone span { font-size: 20px; font-weight: bold; }
+        .btn-zone img { width: 50px; margin-right: 25px; }
+        .btn-zone span { font-size: 18px; font-weight: bold; }
 
         footer { text-align: center; color: #444; font-size: 10px; margin-top: 50px; }
 
-        /* Mobile Fix */
+        /* MOBILE FIX */
         @media (max-width: 600px) {
-            .logo-header { width: 50px; position: static; margin-right: 15px; }
-            .title-header { font-size: 16px; padding: 10px; }
-            .header-box { flex-direction: column; gap: 15px; }
+            .header-box { justify-content: flex-start; padding: 10px; }
+            .logo-header { position: static; width: 45px; margin-right: 15px; }
+            .title-header { font-size: 14px; padding: 8px 15px; letter-spacing: 2px; }
         }
     </style>
 </head>
@@ -60,11 +60,12 @@
             <img src="logo.png" class="logo-header">
             <div class="title-header">KORVEX LABS</div>
         </div>
+        
         <div class="btn-zone" onclick="alert('Ouverture P9...')">
-            <img src="logo.png"> <span>PROTOCOLE P9</span>
+            <img src="p9-icon.png"> <span>PROTOCOLE P9</span>
         </div>
         <div class="btn-zone" onclick="window.open('https://discord.gg/ton-lien')">
-            <img src="logo.png"> <span>DISCORD</span>
+            <img src="discord-icon.png"> <span>DISCORD</span>
         </div>
         <div class="btn-zone" onclick="backToHome()" style="border-color:#555; justify-content:center;">
             <span>← RETOUR</span>
